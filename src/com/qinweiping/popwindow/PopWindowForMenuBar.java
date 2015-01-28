@@ -22,15 +22,16 @@ public class PopWindowForMenuBar extends Activity {
 		super.onCreate(savedInstanceState);
 		mLayoutInflater.from(this);
 		setContentView(R.layout.popwindowmenubar);
+		init();
 	}
 
 	//
 	private void init(){
-
+		initActionBar("µ¯´°²Ëµ¥",true);
 	}
 
 	@SuppressLint("NewApi")
-	private void initActionBar(String title,boolean isShow){
+	private void initActionBar(final String str,boolean isShow){
 		mActionBar = getActionBar();
 		if(!isShow){
 			mActionBar.hide();
@@ -41,28 +42,22 @@ public class PopWindowForMenuBar extends Activity {
 		mActionBar.setDisplayShowHomeEnabled(false);
 		mActionBar.setDisplayShowTitleEnabled(true);
 		View view = mLayoutInflater.inflate(R.layout.actionbar, null);
-		private OnClickListener onClickListener = new OnClickListener(){
-
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				switch(arg0.getId()){
-				case R.id.actionbar_back:
-					finish();
-					break;
-				case R.id.actionbar_title:
-					if(AppUtil.isNotEmpty(title)){
-						
-					}
-					break;
-				}
-			}
-		};
-		
 		TextView backView = (TextView)view.findViewById(R.id.actionbar_back);
 		TextView titleView = (TextView)view.findViewById(R.id.actionbar_title);
-		backView.setOnClickListener(onClickListener);
-		titleView.setOnClickListener(onClickListener);
+		backView.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				finish();
+			}
+		});
+		titleView.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				if(AppUtil.isNotEmpty(str)){
+					
+				}
+			}
+		});
 	}
 	
 	private void initMenu(){
