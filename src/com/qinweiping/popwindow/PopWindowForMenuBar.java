@@ -30,7 +30,7 @@ public class PopWindowForMenuBar extends Activity {
 	}
 
 	@SuppressLint("NewApi")
-	private void initActionBar(boolean isShow){
+	private void initActionBar(String title,boolean isShow){
 		mActionBar = getActionBar();
 		if(!isShow){
 			mActionBar.hide();
@@ -41,9 +41,6 @@ public class PopWindowForMenuBar extends Activity {
 		mActionBar.setDisplayShowHomeEnabled(false);
 		mActionBar.setDisplayShowTitleEnabled(true);
 		View view = mLayoutInflater.inflate(R.layout.actionbar, null);
-		TextView backView = (TextView)view.findViewById(R.id.actionbar_back);
-		TextView titleView = (TextView)view.findViewById(R.id.actionbar_title);
-		
 		private OnClickListener onClickListener = new OnClickListener(){
 
 			@Override
@@ -62,8 +59,16 @@ public class PopWindowForMenuBar extends Activity {
 			}
 		};
 		
+		TextView backView = (TextView)view.findViewById(R.id.actionbar_back);
+		TextView titleView = (TextView)view.findViewById(R.id.actionbar_title);
 		backView.setOnClickListener(onClickListener);
 		titleView.setOnClickListener(onClickListener);
+	}
+	
+	private void initMenu(){
+		TextView btnCopy  = (TextView)findViewById(R.id.actionbar_menu_item1);
+		TextView btnCut   = (TextView)findViewById(R.id.actionbar_menu_item2);
+		TextView btnPaste = (TextView)findViewById(R.id.actionbar_menu_item3);
 	}
 	
 }
