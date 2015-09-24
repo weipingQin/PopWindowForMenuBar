@@ -1,8 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name"		>PopWindowForMenuBar</string>
-    <string name="fuzhi"		>复制</string>
-    <string name="jianqie"		>剪切</string>
-    <string name="zhantie"		>粘贴</string>
+    <string name="app_name">PopUpWindowProject</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="fuzhi">复制</string>
+    <string name="jianqie">剪切</string>
+    <string name="zhantie">粘贴</string>
 
 </resources>
